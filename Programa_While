@@ -1,0 +1,22 @@
+include<stdio.h>
+#include<stdlib.h>
+
+// programa principal
+
+	int main(){
+		int numero, soma;
+		
+		numero=-1;
+		soma=0;
+		printf("\nDigite 0 para sair do programa\n");
+		while(numero!=0)// Verdadeiro
+		{
+			printf("Digite um numero:");
+			scanf("%d",&numero);
+			soma=soma+numero;
+		}
+		printf("\nA soma de todos os numeros:%d\n",soma);	;	
+		
+		system("pause");
+		return 0;
+	}
