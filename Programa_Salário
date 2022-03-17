@@ -1,0 +1,59 @@
+/*Este programa irá receber o salário de um funcionário e calculará um
+novo salário bruto, sofrendo aumento de acordo com a faixa salárial e 
+com desconto de 9.5% de imposto para compor o salário líquido.
+
+
+
+
+
+
+
+*/
+#include<stdio.h>
+#include<stdlib.h>
+// Programa principal
+
+int main () {
+	
+	float sal_atual;// entrada de dados
+	float sal_novo_bruto, sal_atual_desc, sal_liquido, imposto, impostob, aumento;//saída de dados
+	
+	printf("Informe seu salario: R$");
+	scanf("%f",&sal_atual);
+	
+// Estrutura condicional encadeada
+
+	if(sal_atual= 3000.00)
+		aumento = sal_atual*15.45/100;
+	else
+		if (sal_atual <=5500.00)
+		aumento = sal_atual*10.15/100;
+		else
+			aumento = sal_atual*7.5/100;
+			
+//Calcular os aumentos sobre o salário
+
+	imposto = sal_atual*9.5/100;
+	
+	sal_atual_desc = sal_atual - imposto;
+	
+	sal_novo_bruto = sal_atual;
+	
+	impostob = sal_novo_bruto*9.5/100;
+	
+	sal_liquido = sal_novo_bruto - impostob;
+
+	
+	printf("Salario atual: R$ %.2f",sal_atual);
+	printf("\nSalario atual desconto: R$ %.2f\n",sal_atual_desc);
+	printf("\nSeu salario novo sem desconto:R$ %.2f\n",sal_novo_bruto);
+	printf("\nSeu salario liquido com desconto:R$ %.2f\n",sal_liquido);
+	printf("\n");
+		
+	
+	system("pause");
+	return 0;
+	
+	
+	
+}
