@@ -1,0 +1,39 @@
+/* Tabuada  usando o for
+
+Faça a tabuada de multiplicação de número digitado */
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include <stdbool.h>
+#include <ctype.h>
+
+int main(){
+
+	bool continua = true;
+	int num, mult;
+	char op;
+
+while(continua)
+    {
+	    printf("Digite o numero da tabuada:");
+		scanf("%d",&num);
+	
+		for (int i = 0; i < 11; i++)
+   		{
+        	 mult=num*i;	
+    		printf("%d x %d = %d\n",num,i,mult);
+		}
+	fflush(stdin);
+	printf("Deseja continuar (s/n)?:");
+    scanf("%c",&op);
+    if((op != 's') && (op != toupper('s')))
+    continua = false;
+    system("cls");   
+   	}
+	
+	printf("\nFim da tabuada\n");
+//	system("pause");
+	return 0;
+	
+}
