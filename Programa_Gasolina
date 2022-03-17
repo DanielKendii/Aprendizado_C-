@@ -1,0 +1,110 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<locale.h>
+#include<ctype.h>// Permite usar caracteres maiúsculos e minúsculos n o programa
+
+void menu();// declaração de procedimento
+void ValorPago();// declaração de procedimento
+
+//Programa Principal
+
+	int main(){
+		
+		
+	bool continua=true;
+	char op;
+		
+	setlocale(LC_ALL,"Portuguese_Brazil");		
+		
+	while(continua)
+	{
+		ValorPago();
+			
+		printf("Deseja continuar(Sim/Não)?");	
+		scanf("%c",&op);
+			if ((op !='s') && (op != toupper('s')))	
+		
+					continua=false;
+		system("cls");
+	}
+	
+	system("pause");
+	return 0;	
+	}
+	
+	// Subprogramas - Procedimentos
+	
+	
+	
+	
+	void menu()
+	{
+		printf("Tipo de combustível\n");
+		printf("\n1 - Gasolina\n");
+		printf("\n2 - Etanol\n");
+	}	
+		
+	void ValorPago()
+	{		
+		float litros, valoraserpago, preco;
+		int tipo;
+		
+		menu();
+		printf("\nEscolha uma opção:");
+		scanf("%d",&tipo);
+	
+		
+		
+		switch(tipo)
+		{
+			
+		case 1:
+			printf("Quantidade de litros do abastecimento:");
+			scanf("%f",&litros);
+			printf("Qual o valor do combustível:R$");
+			scanf("%f",&preco);
+							
+			fflush(stdin);// Limpar memória		
+			if(litros<25)
+   			{
+	    		valoraserpago= preco*litros;
+				valoraserpago= valoraserpago-0.07*valoraserpago;
+				printf("Valor a ser pago:%.2f\n",valoraserpago);
+			}		
+			
+			else
+			{
+				valoraserpago= preco*litros;
+				valoraserpago= valoraserpago-0.09*valoraserpago;
+				printf("Valor a ser pago:%.2f\n",valoraserpago);
+			}
+		break;
+		case 2:
+			printf("Quantidade de litros do abastecimento:");
+			scanf("%f",&litros);
+			printf("Qual o valor do combustível:R$");
+			scanf("%f",&preco);
+							
+			fflush(stdin);// Limpar memória
+					
+			if(litros<25)
+   				{
+	    		valoraserpago= preco*litros;
+				valoraserpago= valoraserpago-0.05*valoraserpago;
+				printf("Valor a ser pago:%.2f\n",valoraserpago);
+				}		
+			
+			else
+			{
+				valoraserpago= preco*litros;
+				valoraserpago= valoraserpago-0.075*valoraserpago;
+				printf("Valor a ser pago:%.2f\n",valoraserpago);
+			}	
+
+		break;
+		
+		default:
+			printf("\nTipo de combustível inválido!!\n");
+	}
+}
