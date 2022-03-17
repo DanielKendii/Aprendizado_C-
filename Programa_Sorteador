@@ -1,0 +1,29 @@
+// Programa que irá sortear números para jogar na Mega Sena
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>// Permite criar números aleatórios(Randômicos)
+#include<locale.h>// Permite usar acentos nas palavras
+//Programa principal
+
+int main(){
+	
+	int cont, num,n;
+	
+	setlocale(LC_ALL,"Portuguese_Brazil");// Define o idioma do uso das mensagens exibidas	
+	srand(time(NULL));// Gerar números aleatórios (Randômicos)
+	
+	printf("Digite a quantidade de números para a Mega Sena:");
+	scanf("%d",&n);
+
+	printf("\nNúmeros gerados para o jogo da Mega Sena:\n");
+	
+	cont=1;
+	while(cont<=n)
+	{
+		num = 1 + rand()%60;
+		printf("%d\n",num);
+		cont++; // Incremento -- cont = cont+1 	
+	}
+	system ("pause");
+	return 0; 
+}
