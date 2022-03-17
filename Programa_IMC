@@ -1,0 +1,65 @@
+/* Este programa irá calcular o IMC de duas pessoas, através do peso e altura.
+Iremos criar uma função para calcular o IMC e um procedimento para exibir em 
+que grau de obesidade a pessoa se encontra */
+#include <stdio.h> // Biblioteca padrão de entrada e saída de dados
+#include <stdlib.h> // Biblioteca que permite executar o programa Prompt do DOS.
+float calcularImc(float peso, float altura); // Função que irá calcular IMC
+void verificarImc(float imc); // Procedimento de verificação
+// Programa Princial
+
+int main(){
+	
+	float peso1, peso2, altura1, altura2;// variáveis de entrada
+	float imc1, imc2; // variáveis de saída
+	
+	printf("Informe o peso da primeira pessoa(kg):");
+	scanf("%f", &peso1);
+	printf("Informe a altura da primeira pessoa(m):");
+	scanf("%f", &altura1);
+	
+	printf("Informe o peso da segunda pessoa(kg):");
+	scanf("%f", &peso2);
+	printf("Informe a altura da segunda pessoa(m):");
+	scanf("%f", &altura2);
+	
+	imc1 = calcularImc(peso1, altura1);
+	imc2 = calcularImc(peso2, altura2);
+		
+	// Exibir IMC
+	
+	printf("\nO IMC da primeira pessoa = %.2f\n", imc1);
+	verificarImc(imc1);
+	
+	printf("\nO IMC da segunda pessoa = %.2f\n", imc2);
+	verificarImc(imc2);
+	
+	return 0;	
+}
+
+//Função para calcular o IMC
+	float calcularImc(float peso, float altura){
+	float imc; // Variável Local
+	
+	imc = peso/(altura * altura);
+	
+	return imc;
+	}
+	
+// Procedimento de exibir o IMC de acordo com o IMC da pessoa.
+
+	void verificarImc(float imc){
+		
+		if(imc <18.5)
+		printf("Sua situacao Atual: Abaixo do Peso");
+	if ((imc >= 18.5) && (imc <=24.9))
+		printf("Sua situacao Atual: Normal\n");
+	if((imc >=25) && (imc =29.9))
+		printf("Sua situacao Atual: Sobrepeso\n");
+	if((imc >=30) && (imc =34.9))
+		printf("Sua situacao Atual: Obesidade Grau I\n");
+	if((imc >=35) && (imc =39.9))
+		printf("Sua situacao Atual: Obesidade Grau II\n");
+	if (imc >=40)
+		printf("Sua situacao Atual: Obesidade Grau III\n");
+	}
+		
