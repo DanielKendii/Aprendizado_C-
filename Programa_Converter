@@ -1,0 +1,68 @@
+/* Este programa irá mostrar se o dinheiro é suficiente ou
+na compra de um livro em dólar*/
+#include<stdio.h> // Biblioteca padrão de entrada e saída
+#include<stdlib.h> // Biblioteca que permite executar programa em DOS
+#include<stdbool.h> // Biblioteca que permite usar varíaveis BooLeanas
+float converter(float d, float td);
+bool comparar(float disp, float livroReal);// Função de comparação
+
+void resultado(bool sufi, float livroReal, float disp);// Mostrar resultado
+
+// Programa Princial
+
+int main(){
+	float valor_disp, livro_em_dolar, tx_dolar; // Variáveis de entrada
+	float livro_em_real;// Variável de saída
+	bool suficiente; // Variável booLeana - Lógica
+	
+	printf("\nInforme o valor em dinheiro disponivel(R$)");
+	scanf("%f", &valor_disp);
+	printf("\nO valor do livro em dolar:(US$)");
+	scanf("%f",&livro_em_dolar);	
+	printf("\nO valor do dolar - hoje: R$");
+	scanf("%f",&tx_dolar);
+	
+	// Chamar a função para converter valor do livro em dólar para real
+	livro_em_real = converter(livro_em_dolar,tx_dolar);
+	
+	// Chamar uma função para atribuir um booLeano para variável suficiente
+		suficiente = comparar(valor_disp,livro_em_real);
+		
+	// chamar procedimento para mostrar resultado
+		resultado(suficiente,livro_em_real,valor_disp);
+	
+		system("pause");
+		return 0;
+}
+// Função para converter um valor em dolar para reais
+float converter(float d, float td){
+	
+	float r; // Variável Local
+	r = d*td;
+	
+	return r;
+}
+
+// Função para retornar um valor booLeano
+	bool comparar(float disp, float livroReal){
+		return livroReal <= disp;	}
+	
+// Procedimento para exibir resultado
+
+void resultado(bool sufi, float livroReal, float disp){
+	if(sufi){
+		printf("\nTenho dinheiro suficiente para comprar o livro\n");
+		printf("\nO valor do livro em reais: R$%.2f\n",livroReal);
+		printf("\nO dinheiro disponivel: R$ %.2f\n",disp);
+		printf("\nSaldo restante apos a compra do livro R$ %.2f\n");
+		}
+		
+		
+		else
+		{
+		printf("\nNao tenho dinheiro suficiente para comprar o livro\n");
+		printf("\nO valor do livro em reais: R$ %.2f\n",livroReal);
+		printf("\nO dinheiro disponivel: R$ %.2f\n",disp);
+		printf("\n Falta para comprar o livro: R$ %.2f\n",livroReal-disp);
+				}
+}
