@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+	
+	
+	int numero, soma, contador;
+	
+	soma=0;
+	contador=5;
+	
+	for (int i = 0; i <contador; i++)
+	{
+		
+		printf("Digite um numero:");
+		scanf("%d",&numero);
+		soma= soma+numero;
+	}
+	printf("\nA soma de todos os numero digitados: %d",soma);
+	
+	system("pause");
+}
